@@ -92,17 +92,17 @@ namespace Contact_Tracing_App
             if (counter == 0)
             {
                 user1();
-                counter += 1;
+                save_btn.Enabled = false;
             }
             if (counter == 1)
             {
                 user2();
-                counter += 1;
+                save_btn.Enabled = false;
             }
             if (counter == 2)
             {
                 user3();
-                counter += 1;
+                save_btn.Enabled = false;
             }
             string message = "Want to add another contact? ";
             string title = "Contact Tracing App";
@@ -114,14 +114,18 @@ namespace Contact_Tracing_App
                 age_box.Clear();
                 address_box.Clear();
                 contact_box.Clear();
+                save_btn.Enabled = true;
+                counter += 1;
+
             }
-            else
+            if (result == DialogResult.No && counter <= 2)
             {
-                // Do something  
+
+                Form users = new Form2();
+                this.Hide();
+                users.Show();
             }
-
-
-
+           
         }
     }
 }
